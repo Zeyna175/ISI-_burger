@@ -9,7 +9,9 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'Seynabou_Gueye_burger', url: 'https://github.com/Zeyna175/ISI-_burger.git'
+                git branch: 'Seynabou_Gueye_burger',
+                    url: 'https://github.com/Zeyna175/ISI-_burger.git',
+                    credentialsId: 'github-token-2' // Ajout du credentialsId
             }
         }
 
