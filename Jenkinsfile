@@ -11,7 +11,13 @@ pipeline {
             steps {
                 git branch: 'Seynabou_Gueye_burger',
                     url: 'https://github.com/Zeyna175/ISI-_burger.git',
-                    credentialsId: 'github-token-2' 
+                    credentialsId: 'github-token-2' // Ajout du credentialsId
+            }
+        }
+
+        stage('Check Composer') {
+            steps {
+                sh 'composer -v || echo "Composer n\'est pas installé"'
             }
         }
 
@@ -19,7 +25,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    composer update
+                    composer update --ignore-platform-reqs
                     composer install --no-dev --prefer-dist
                     '''
                 }
