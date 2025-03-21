@@ -11,13 +11,13 @@ pipeline {
             steps {
                 git branch: 'Seynabou_Gueye_burger',
                     url: 'https://github.com/Zeyna175/ISI-_burger.git',
-                    credentialsId: 'github-token-2' // Ajout du credentialsId
+                    credentialsId: 'github-token-2' // Assurez-vous que l'ID est correct
             }
         }
 
         stage('Check Composer') {
             steps {
-                sh 'composer -v || echo "Composer n\'est pas installé"'
+                sh 'composer -V || echo "⚠️ Composer n\'est pas installé !"'
             }
         }
 
@@ -25,8 +25,10 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    composer update --ignore-platform-reqs
-                    composer install --no-dev --prefer-dist
+                    export COMPOSER_ALLOW_SUPERUSER=1
+                    composer self-update
+                    composer update --ignore-platform-reqs --no-interaction
+                    composer install --no-dev --prefer-dist --no-interaction
                     '''
                 }
             }
@@ -64,10 +66,10 @@ pipeline {
 
     post {
         success {
-            echo '✅ Pipeline exécuté avec succès !'
+            echo '✅ Pipeline terminé avec succès !'
         }
         failure {
-            echo '❌ Échec du pipeline, vérifie les logs.'
+            echo '❌ Échec du pipeline, vérifie les logs Jenkins.'
         }
     }
 }
