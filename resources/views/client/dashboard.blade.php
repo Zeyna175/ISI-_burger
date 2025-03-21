@@ -9,15 +9,16 @@
 
             <ul class="mt-4 space-y-2 text-gray-800">
                 <li class="flex items-center">
-                    <i class="fas fa-utensils text-yellow-500 mr-2"></i> <strong>Voir le menu et commander des burgers</strong>
+                    <i class="fas fa-utensils text-yellow-500 mr-2"></i> <strong>🍔Voir le menu et commander des burgers</strong>
                 </li>
                 <li class="flex items-center">
-                    <i class="fas fa-shopping-basket text-blue-500 mr-2"></i> <strong>Suivre vos commandes</strong>
+                    <i class="fas fa-shopping-basket text-blue-500 mr-2"></i> <strong>🛒Suivre vos commandes</strong>
                 </li>
                 <li class="flex items-center">
-                    <i class="fas fa-file-invoice text-red-500 mr-2"></i> <strong>Télécharger vos factures</strong>
+                    <i class="fas fa-file-invoice text-red-500 mr-2"></i> <strong>📄Télécharger vos factures</strong>
                 </li>
             </ul>
         </div>
     </div>
 @endsection
+
