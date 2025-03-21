@@ -11,14 +11,17 @@ pipeline {
             steps {
                 git branch: 'Seynabou_Gueye_burger',
                     url: 'https://github.com/Zeyna175/ISI-_burger.git',
-                    credentialsId: 'github-token-2' // Ajout du credentialsId
+                    credentialsId: 'github-token-2' 
             }
         }
 
         stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'composer install --no-dev --prefer-dist'
+                    sh '''
+                    composer update
+                    composer install --no-dev --prefer-dist
+                    '''
                 }
             }
         }
